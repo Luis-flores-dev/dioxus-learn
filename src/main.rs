@@ -57,11 +57,16 @@ fn Home() -> Element {
 /// Blog page
 #[component]
 pub fn Blog(id: i32) -> Element {
+    let mut goal: String = "".to_string();
+    if id == 10{
+        goal = format!("Llegaste al nivel {}", id);
+    }
     rsx! {
         div {
             id: "blog",
 
             // Content
+            p { {goal}}
             h1 { "This is blog #{id}!" }
             p { "In blog #{id}, we show how the Dioxus router works and how URL parameters can be passed as props to our route components." }
 
